@@ -47,28 +47,40 @@ const FormTarea = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <div>
+    <div className="max-w-xl mx-auto p-4">
+      <form
+        onSubmit={onSubmit}
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="nombre"
+          >
+            Nombre de la tarea
+          </label>
           <input
             type="text"
-            className=""
-            placeholder="nombre tarea..."
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Nombre de la tarea..."
             name="nombre"
             value={nombre}
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="flex items-center justify-between">
           <input
             type="submit"
-            className=""
-            placeholder="nombre tarea..."
-            value="agregar Tarea"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            value="Agregar Tarea"
           />
         </div>
       </form>
-      {errortarea ? <p>el nombre de la tarea es obligatorio</p> : null}
+      {errortarea ? (
+        <p className="text-red-500 text-xs italic">
+          El nombre de la tarea es obligatorio
+        </p>
+      ) : null}
     </div>
   );
 };
