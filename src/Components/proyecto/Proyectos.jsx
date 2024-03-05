@@ -1,26 +1,26 @@
-import React from "react";
-import Sidebar from "../layout/Sidebar";
+import React,{useContext} from "react";
 import FormTarea from "../tarea/FormTarea";
 import ListadoTarea from "../tarea/ListadoTarea";
-import Navbar from "../layout/navbar/Navbar";
-import { SidebarProvider } from "../../context/SidebarContext";
+import ListadoProyecto from "./ListadoProyecto";
+import CrearProyecto from "./CrearProyecto";
+import proyectoContext from "../../context/proyectos/proyectoContext";
 
 const Proyectos = () => {
+const { agregarProyectos } = useContext(proyectoContext);
+
   return (
-    <div>
-      <SidebarProvider>
-        <Navbar />
-        <Sidebar />
-      </SidebarProvider>
+
       <div>
         <main>
+        <CrearProyecto agregarProyecto={agregarProyectos} />
+
+          <ListadoProyecto />
           <FormTarea />
           <div>
             <ListadoTarea />
           </div>
         </main>
       </div>
-    </div>
   );
 };
 
