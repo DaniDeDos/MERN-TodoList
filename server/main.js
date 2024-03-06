@@ -5,7 +5,7 @@ const app = express();
 conectarBD();
 const PORT = process.env.PORT || 4000;
 
-app.use("/api/usuarios", require("./routes/usuarios.js"));
+app.use("/api/usuarios", require("./routes/usuarios"));
 
 app.listen(PORT, () => {
   console.log("server run");
