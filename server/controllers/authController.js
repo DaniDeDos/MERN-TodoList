@@ -46,5 +46,19 @@ exports.autenticarUsuario = async (req, res) => {
         res.json({ token });
       }
     );
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "hubo un error" });
+  }
+};
+
+//Obtener el usuario autenticado
+exports.usuarioAutenticado = async (req, res) => {
+  try {
+    const usuario = await Usuario.findById(req.usuario.id).select("-password");
+    res.json({ usuario });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "hubo un error" });
+  }
 };

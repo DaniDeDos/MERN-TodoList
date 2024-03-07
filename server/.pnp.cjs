@@ -27,6 +27,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["bcryptjs", "npm:2.4.3"],\
+          ["cors", "npm:2.8.5"],\
           ["dotenv", "npm:16.4.5"],\
           ["express", "npm:4.18.3"],\
           ["express-validator", "npm:7.0.1"],\
@@ -459,6 +460,17 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../../../../home/hanzo/.yarn/berry/cache/cookie-signature-npm-1.0.6-93f325f7f0-10c0.zip/node_modules/cookie-signature/",\
         "packageDependencies": [\
           ["cookie-signature", "npm:1.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["cors", [\
+      ["npm:2.8.5", {\
+        "packageLocation": "../../../../../../../../home/hanzo/.yarn/berry/cache/cors-npm-2.8.5-c9935a2d12-10c0.zip/node_modules/cors/",\
+        "packageDependencies": [\
+          ["cors", "npm:2.8.5"],\
+          ["object-assign", "npm:4.1.1"],\
+          ["vary", "npm:1.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1688,6 +1700,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["object-assign", [\
+      ["npm:4.1.1", {\
+        "packageLocation": "../../../../../../../../home/hanzo/.yarn/berry/cache/object-assign-npm-4.1.1-1004ad6dec-10c0.zip/node_modules/object-assign/",\
+        "packageDependencies": [\
+          ["object-assign", "npm:4.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["object-inspect", [\
       ["npm:1.13.1", {\
         "packageLocation": "../../../../../../../../home/hanzo/.yarn/berry/cache/object-inspect-npm-1.13.1-fd038a2f0a-10c0.zip/node_modules/object-inspect/",\
@@ -1933,6 +1954,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["server", "workspace:."],\
           ["bcryptjs", "npm:2.4.3"],\
+          ["cors", "npm:2.8.5"],\
           ["dotenv", "npm:16.4.5"],\
           ["express", "npm:4.18.3"],\
           ["express-validator", "npm:7.0.1"],\

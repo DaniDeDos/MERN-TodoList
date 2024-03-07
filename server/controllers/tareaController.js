@@ -119,6 +119,10 @@ exports.eliminarTarea = async (req, res) => {
     const { proyecto } = req.body;
 
     const existeProyecto = await Proyecto.findById(proyecto);
+    // Verificar si existeProyecto es null antes de acceder a sus propiedades
+    if (!existeProyecto) {
+      return res.status(404).json({ masg: "Proyecto no encontrado" });
+    }
 
     // Asegurarse de que req.usuario y req.usuario.id están definidos
     if (!req.usuario || !req.usuario.id) {
