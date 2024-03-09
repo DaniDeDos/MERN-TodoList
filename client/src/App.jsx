@@ -13,10 +13,11 @@ import Home from "./Components/pages/Home.jsx";
 import { SidebarProvider } from "./context/SidebarContext.jsx";
 import Navbar from "./Components/layout/navbar/Navbar.jsx";
 import Sidebar from "./Components/layout/Sidebar.jsx";
-import TareaDetalle from "./Components/tarea/TareaDetalle.jsx";
 import AuthState from "./context/auth/AuthState.jsx";
 import tokenAuth from "./config/token.js";
 import PrivateRoute from "./Components/routes/PrivateRoute.jsx";
+import Tarea from "./Components/tarea/Tareas.jsx";
+import FormTarea from "./Components/tarea/FormTarea.jsx";
 
 const token = localStorage.getItem("token");
 if (token) {
@@ -42,6 +43,12 @@ const App = () => {
                     <Route exact path="/register" element={<Register />} />
 
                     <Route exact path="/proyecto" element={<Proyectos />} />
+                    <Route exact path="/tarea/:id" element={<Tarea />} />
+                    <Route
+                      exact
+                      path="/proyecto/tarea/form-tarea/:id"
+                      element={<FormTarea />}
+                    />
 
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="*" element={<NotFound />} />

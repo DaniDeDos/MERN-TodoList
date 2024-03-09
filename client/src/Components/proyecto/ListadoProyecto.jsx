@@ -4,6 +4,7 @@ import proyectoContext from "../../context/proyectos/proyectoContext";
 import Headings from "./Headings.jsx";
 import { TiFolderDelete } from "react-icons/ti";
 import AlertaContext from "../../context/alerts/alertaContext.js";
+import { Link } from "react-router-dom";
 
 const ListadoProyecto = () => {
   const proyectosContext = useContext(proyectoContext);
@@ -46,7 +47,7 @@ const ListadoProyecto = () => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto ">
+    <div className="max-w-screen-xl mx-auto">
       {alerta ? <div>{alerta.msg}</div> : null}
       <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-center">
         Lista de proyectos
@@ -133,13 +134,12 @@ const ListadoProyecto = () => {
                     >
                       <TiFolderDelete />
                     </button>
-                    <a
-                      href="#"
-                      onClick={(e) => seleccionarProyecto(e, proyecto._id)}
+                    <Link
+                      to={`/tarea/${proyecto._id}`}
                       className="font-medium text-blue-600 hover:underline"
                     >
                       Tarea
-                    </a>
+                    </Link>
                   </div>
                 </td>
               </tr>
@@ -152,3 +152,5 @@ const ListadoProyecto = () => {
 };
 
 export default ListadoProyecto;
+
+//onClick={(e) => seleccionarProyecto(e, proyecto._id)}

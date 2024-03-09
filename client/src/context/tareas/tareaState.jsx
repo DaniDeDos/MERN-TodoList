@@ -6,6 +6,9 @@ import {
   AGREGAR_TAREA,
   VALIDAR_TAREA,
   ELIMINAR_TAREA,
+  TAREA_ACTUAL,
+  ACTUALIZAR_TAREA,
+  LIMPIAR_TAREA,
 } from "../types";
 
 import clienteAxios from "../../config/axios";
@@ -19,13 +22,14 @@ const TareaState = (props) => {
 
   const [state, dispatch] = useReducer(TareaReducer, initialState);
 
-  const obtenerTareas = async (proyectoId) => {
+  const obtenerTareas = async (proyecto) => {
     try {
-      const resultado = await clienteAxios.get("/api/tareas");
-      console.log(resultado);
+      const resultado = await clienteAxios.get("/api/tareas", {
+        params: { proyecto },
+      });
       dispatch({
         type: TAREAS_PROYECTO,
-        payload: proyectoId,
+        payload: resultado.data.tareas,
       });
     } catch (error) {
       console.log(error);
@@ -51,17 +55,43 @@ const TareaState = (props) => {
     });
   };
 
-  const eliminarTarea = (id) => {
+  const eliminarTarea = async (id, proyecto) => {
+    try {
+      await clienteAxios.delete(`/api/tareas/${id}`, { params: { proyecto } });
+      dispatch({
+        type: ELIMINAR_TAREA,
+        payload: id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const actualizarTarea = async (tarea) => {
+    try {
+      const resultado = await clienteAxios.put(
+        `/api/tareas/${tarea._id}`,
+        tarea
+      );
+      dispatch({
+        type: ACTUALIZAR_TAREA,
+        payload: resultado.data.tarea,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const guardarTareaActual = (tarea) => {
     dispatch({
-      type: ELIMINAR_TAREA,
-      payload: id,
+      type: TAREA_ACTUAL,
+      payload: tarea,
     });
   };
 
-  const cambiarEstadoTarea = (tarea) => {
+  const limpiarTarea = () => {
     dispatch({
-      type: ESTADO_TAREA,
-      payload: tarea,
+      Type: LIMPIAR_TAREA,
     });
   };
 
@@ -75,7 +105,9 @@ const TareaState = (props) => {
         agregarTarea,
         validarTarea,
         eliminarTarea,
-        cambiarEstadoTarea,
+        guardarTareaActual,
+        limpiarTarea,
+        actualizarTarea,
       }}
     >
       {props.children}

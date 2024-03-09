@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Tarea from "./Tarea.jsx";
-
 import proyectoContext from "../../context/proyectos/proyectoContext";
 import tareaContext from "../../context/tareas/tareaContext";
 
@@ -15,6 +14,9 @@ const ListadoTarea = () => {
 
   const [proyectoActual] = proyecto;
 
+  // Asegurarse de que tareasproyecto está definido antes de usarlo
+  if (!tareasproyecto) return <h2>Cargando tareas...</h2>;
+
   return (
     <>
       <h2>Proyecto: {proyectoActual.nombre}</h2>
@@ -27,7 +29,6 @@ const ListadoTarea = () => {
           tareasproyecto.map((tarea) => <Tarea key={tarea.id} tarea={tarea} />)
         )}
       </ul>
-
     </>
   );
 };

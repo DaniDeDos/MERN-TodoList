@@ -10,7 +10,7 @@ const NavbarUser = () => {
     },
     {
       name: "Proyectos",
-      href: "/Proyecto",
+      href: "/proyecto",
       className: "md:hover:bg-transparent md:hover:text-[#1dcc00] md:p-0",
     },
     {
