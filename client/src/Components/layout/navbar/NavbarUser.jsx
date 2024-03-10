@@ -1,7 +1,7 @@
 import React from "react";
 
 const NavbarUser = () => {
-  // Elementos del menú como un array de objetos para facilitar la iteración
+  // Array de objetos que representa los elementos del menú.
   const menuItems = [
     {
       name: "Home",

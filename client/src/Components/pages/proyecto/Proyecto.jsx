@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import proyectoContext from "../../context/proyectos/proyectoContext.js";
+import proyectoContext from "../../../context/proyectos/proyectoContext.js";
 import { MdFolderDelete } from "react-icons/md";
-import AlertaContext from "../../context/alerts/alertaContext.js";
+import AlertaContext from "../../../context/alerts/alertaContext.js";
 import { Link } from "react-router-dom";
-import Titulo from "../layout/Titulo.jsx";
-import AuthContext from "../../context/auth/authContext.js";
+import Titulo from "../../layout/Titulo.jsx";
+import AuthContext from "../../../context/auth/authContext.js";
 import CrearProyecto from "./CrearProyecto.jsx";
 
 const Proyecto = () => {
@@ -77,7 +77,7 @@ const Proyecto = () => {
                     </div>
                   </div>
                 </th>
-                <td className="px-6 py-4">React Developer</td>
+                <td className="px-6 py-4">En desarrolllo!</td>
                 <td className="px-6 py-4">
                   <div className="flex items-center">
                     <div className="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>{" "}
