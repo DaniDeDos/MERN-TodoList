@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import tareaContext from "../../context/tareas/tareaContext";
 import Titulo from "../layout/Titulo";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-const FormTarea = () => {
+const FormTarea = ({ active }) => {
   const { id } = useParams();
   const proyectoId = id;
+  const navigate = useNavigate();
 
   const tareasContext = useContext(tareaContext);
   const {
@@ -54,12 +55,14 @@ const FormTarea = () => {
     }
 
     if (tareaseleccionada === null) {
+      // Crear nueva tarea
       tarea.proyecto = proyectoId;
       tarea.estado = false;
       agregarTarea(tarea);
-    } else {
+    }
+    if (tareaseleccionada !== null) {
+      // Actualizar tarea existente
       actualizarTarea(tarea);
-      limpiarTarea();
     }
 
     obtenerTareas(proyectoId);
@@ -68,9 +71,12 @@ const FormTarea = () => {
       nombre: "",
       descripcion: "",
     });
+
+    
+    limpiarTarea();
+
+    navigate(-1);
   };
-
-
 
   return (
     <>
@@ -89,7 +95,6 @@ const FormTarea = () => {
                 <input
                   type="text"
                   name="nombre"
-                  id="name"
                   autoComplete="username"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                   placeholder="ej: nombre de la tarea"
@@ -108,7 +113,6 @@ const FormTarea = () => {
                 <input
                   type="text"
                   name="descripcion"
-                  id="descripcion"
                   autoComplete="tareadescripcion"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                   placeholder="ej: descripcion de la tarea"
@@ -121,7 +125,7 @@ const FormTarea = () => {
                 <button
                   type="button"
                   className="w-full text-white bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  onClick={() => tareaEliminar(tarea._id)}
+                  onClick={() => limpiarTarea()}
                 >
                   Cancelar
                 </button>
@@ -129,7 +133,7 @@ const FormTarea = () => {
                   type="submit"
                   className="w-full text-white bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
-                  Crear tarea
+                  {tareaseleccionada ? "Actualizar tarea" : "Crear tarea"}
                 </button>
               </div>
             </form>

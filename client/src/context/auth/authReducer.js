@@ -20,6 +20,16 @@ export default (state, action) => {
       };
 
     case CERRAR_SESION:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        token: null,
+        usuario: null,
+        autenticado: false,
+        mensaje: action.payload,
+        cargando: false,
+      };
+
     case LOGIN_ERROR:
     case REGISTRO_ERROR:
       localStorage.removeItem("token");

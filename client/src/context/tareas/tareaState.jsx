@@ -68,6 +68,10 @@ const TareaState = (props) => {
   };
 
   const actualizarTarea = async (tarea) => {
+    console.log("desde state de tareas");
+
+    console.log(tarea);
+
     try {
       const resultado = await clienteAxios.put(
         `/api/tareas/${tarea._id}`,
@@ -77,6 +81,7 @@ const TareaState = (props) => {
         type: ACTUALIZAR_TAREA,
         payload: resultado.data.tarea,
       });
+      obtenerTareas(id);
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +96,8 @@ const TareaState = (props) => {
 
   const limpiarTarea = () => {
     dispatch({
-      Type: LIMPIAR_TAREA,
+      type: LIMPIAR_TAREA,
+      payload: null,
     });
   };
 

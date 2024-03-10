@@ -21,6 +21,7 @@ export default (state, action) => {
         ...state,
         tareasproyecto: [...state.tareasproyecto, action.payload],
         errortarea: false,
+        tareaseleccionada: null,
       };
 
     case VALIDAR_TAREA:
@@ -42,6 +43,7 @@ export default (state, action) => {
         tareasproyecto: state.tareasproyecto.map((tarea) =>
           tarea._id === action.payload._id ? action.payload : tarea
         ),
+        tareaseleccionada: null,
       };
 
     case TAREA_ACTUAL:

@@ -14,6 +14,7 @@ import {
 } from "../types";
 
 const AuthState = ({ children }) => {
+
   const initialState = {
     token: localStorage.getItem("token"),
     autenticado: null,
@@ -96,17 +97,30 @@ const AuthState = ({ children }) => {
   };
 
   // Cerrar sesion
-  const cerrarSesion = async (datos) => {
+  const cerrarSesion = async () => {
     try {
+      // Eliminar el token del localStorage
+      localStorage.removeItem("token");
+      // Actualizar el estado de autenticación a false
       dispatch({
         type: CERRAR_SESION,
+        payload: {
+          autenticado: false,
+          usuario: null,
+          token: null,
+        },
       });
+      
     } catch (error) {
       console.log(error.response);
       const alerta = {
-        msg: error.response.data.msg,
+        msg: "Hubo un error al cerrar sesión",
         categoria: "alerta-error",
       };
+      dispatch({
+        type: LOGIN_ERROR,
+        payload: alerta,
+      });
     }
   };
 

@@ -105,3 +105,22 @@ exports.eliminarProyectos = async (req, res) => {
     res.status(500).send("Hubo un error");
   }
 };
+
+// Obtener un proyecto por su ID
+exports.getProyecto = async (req, res) => {
+  try {
+    // Buscar el proyecto por su ID
+    const proyecto = await Proyecto.findById(req.params.id);
+
+    // Si el proyecto no existe, enviar un mensaje de error
+    if (!proyecto) {
+      return res.status(404).json({ msg: "Proyecto no encontrado" });
+    }
+
+    // Enviar el proyecto encontrado
+    res.json(proyecto);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Hubo un error");
+  }
+};

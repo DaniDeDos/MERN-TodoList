@@ -12,6 +12,9 @@ router.post(
   proyectoController.crearProyecto
 );
 
+// Obtener proyecto por id:
+router.get("/:id", proyectoController.getProyecto);
+
 // Obtener todos los proyectos
 router.get("/", auth, proyectoController.obtenerProyectos);
 
@@ -25,4 +28,5 @@ router.put(
 
 // Eliminar un proyecto
 router.delete("/:id", auth, proyectoController.eliminarProyectos);
+
 module.exports = router;

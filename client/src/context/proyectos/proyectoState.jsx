@@ -10,6 +10,7 @@ import {
   PROYECTO_ACTUAL,
   ELIMINAR_PROYECTO,
   PROYECTO_ERROR,
+  GET_PROYECTO,
 } from "../types";
 
 const ProyectoState = (props) => {
@@ -36,10 +37,28 @@ const ProyectoState = (props) => {
   const obtenerProyectos = async () => {
     try {
       const resultado = await clienteAxios.get("/api/proyectos");
-      console.log(resultado.data); // Añade esta línea para verificar la respuesta
       dispatch({
         type: OBTENER_PROYECTOS,
         payload: resultado.data.proyectos,
+      });
+    } catch (error) {
+      const alerta = {
+        msg: "Hubo un error",
+        categoria: "alerta-error",
+      };
+      dispatch({
+        type: PROYECTO_ERROR,
+        payload: alerta,
+      });
+    }
+  };
+
+  const getProyecto = async (proyectoId) => {
+    try {
+      const resultado = await clienteAxios.get(`/api/proyectos/${proyectoId}`);
+      dispatch({
+        type: GET_PROYECTO,
+        payload: resultado.data,
       });
     } catch (error) {
       const alerta = {
@@ -126,6 +145,7 @@ const ProyectoState = (props) => {
         mostrarError,
         proyectoActual,
         eliminarProyecto,
+        getProyecto,
       }}
     >
       {props.children}

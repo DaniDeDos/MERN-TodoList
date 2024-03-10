@@ -14,37 +14,34 @@ const Navbar = () => {
     usuarioAutenticado();
   }, []);
 
-  const { setIsDrawerOpen } = useContext(SidebarContext); // Accede a setIsDrawerOpen
+  const { setIsDrawerOpen } = useContext(SidebarContext);
 
   const toggleUserMenu = () => {
-    setIsDrawerOpen(true); // Abre el sidebar al hacer clic
+    setIsDrawerOpen(true);
   };
 
   return (
     <nav className="bg-black">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <TaskManagementLink />
-        <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
-          <button
-            type="button"
-            className="flex text-sm bg-gray-800 md:me-0"
-            id="user-menu-button"
-            aria-expanded="false"
-            data-dropdown-toggle="user-dropdown"
-            data-dropdown-placement="bottom"
-            onClick={toggleUserMenu}
-          >
-            <TfiMenu className="text-[#fff]" />
-          </button>
-        </div>
+      <div className="max-w-screen-xl mx-auto p-4">
+        <div className="flex flex-wrap items-center justify-between">
+          <TaskManagementLink />
+          <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
+            <button
+              type="button"
+              className="flex text-sm bg-gray-800 md:me-0"
+              id="user-menu-button"
+              aria-expanded="false"
+              data-dropdown-toggle="user-dropdown"
+              data-dropdown-placement="bottom"
+              onClick={toggleUserMenu}
+            >
+              <TfiMenu className="text-[#fff]" />
+            </button>
+          </div>
 
-        <NavbarUser />
+          <NavbarUser />
+        </div>
       </div>
-      {usuario ? (
-        <p>
-          Hola <span>{usuario.nombre}</span>
-        </p>
-      ) : null}
     </nav>
   );
 };

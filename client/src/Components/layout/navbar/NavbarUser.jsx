@@ -13,21 +13,6 @@ const NavbarUser = () => {
       href: "/proyecto",
       className: "md:hover:bg-transparent md:hover:text-[#1dcc00] md:p-0",
     },
-    {
-      name: "Services",
-      href: "#",
-      className: "md:hover:bg-transparent md:hover:text-[#1dcc00] md:p-0",
-    },
-    {
-      name: "Pricing",
-      href: "#",
-      className: "md:hover:bg-transparent md:hover:text-[#1dcc00] md:p-0",
-    },
-    {
-      name: "Contact",
-      href: "#",
-      className: "md:hover:bg-transparent md:hover:text-[#1dcc00] md:p-0",
-    },
   ];
 
   return (

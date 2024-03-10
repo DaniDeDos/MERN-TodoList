@@ -6,6 +6,7 @@ import {
   PROYECTO_ACTUAL,
   ELIMINAR_PROYECTO,
   PROYECTO_ERROR,
+  GET_PROYECTO,
 } from "../types";
 
 export default (state, action) => {
@@ -14,6 +15,12 @@ export default (state, action) => {
       return {
         ...state,
         formulario: true,
+      };
+
+    case GET_PROYECTO:
+      return {
+        ...state,
+        proyecto: action.payload,
       };
 
     case OBTENER_PROYECTOS:

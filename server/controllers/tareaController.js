@@ -73,40 +73,42 @@ exports.actualizarTarea = async (req, res) => {
   //Revisar si hay errores
   const errores = validationResult(req);
   if (!errores.isEmpty()) {
-    return res.status(400).json({ errores: errores.array() });
+     return res.status(400).json({ errores: errores.array() });
   }
-
+ 
   try {
-    //comprobar si existe la tarea
-    const { proyecto, nombre, estado } = req.body;
-    const esisteTarea = await Tarea.findById(req.params.id);
-    if (!esisteTarea) {
-      return res.status(404).json({ msg: "Tarea no encontrado" });
-    }
-
-    // Asegurarse de que req.usuario y req.usuario.id están definidos
-    if (!req.usuario || !req.usuario.id) {
-      return res.status(401).json({ masg: "Usuario no autorizado" });
-    }
-
-    //crear objeto con la nueva info
-
-    nuevaTarea.nombre = nombre;
-    nuevaTarea.estado = estado;
-
-    //Actualizar Tarea
-    let tarea = await Tarea.findByIdAndUpdate(
-      { _id: req.params.id },
-      { $set: nuevaTarea },
-      { new: true }
-    );
-
-    res.json({ tarea });
+     //comprobar si existe la tarea
+     const esisteTarea = await Tarea.findById(req.params.id);
+     if (!esisteTarea) {
+       return res.status(404).json({ msg: "Tarea no encontrado" });
+     }
+ 
+     // Asegurarse de que req.usuario y req.usuario.id están definidos
+     if (!req.usuario || !req.usuario.id) {
+       return res.status(401).json({ masg: "Usuario no autorizado" });
+     }
+ 
+     // Actualizar Tarea
+     const { nombre, estado } = req.body;
+     const tareaActualizada = {
+       ...esisteTarea._doc,
+       nombre,
+       estado,
+     };
+ 
+     const tarea = await Tarea.findByIdAndUpdate(
+       req.params.id,
+       tareaActualizada,
+       { new: true }
+     );
+ 
+     res.json({ tarea });
   } catch (error) {
-    console.log(error);
-    res.status(500).send("Hubo un error");
+     console.log(error);
+     res.status(500).send("Hubo un error");
   }
-};
+ };
+ 
 
 //Eliminar tarea
 exports.eliminarTarea = async (req, res) => {
