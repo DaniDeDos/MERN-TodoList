@@ -1,5 +1,23 @@
 # Gestión de Proyectos y Tareas
 
+<div>
+<img src = "./img/captura_home.png" width = "100%">
+</div>
+
+<details closed>
+  <summary><b>Captura Proyecto</b></summary>
+  
+ <img src="./img/captura_proyecto.png" width = "100%">
+>
+</details>
+
+<details closed>
+  <summary><b>Captura Proyecto</b></summary>
+  
+ <img src="./img/captura_tarea.png" width = "100%">
+>
+</details>
+
 ## Descripción
 
 Gestión de Proyectos y Tareas es una aplicación web completa diseñada para que los usuarios pueden crear proyectos, asignar tareas a esos proyectos, y gestionar el estado de las tareas para asegurar que todos los miembros del equipo estén al tanto de las responsabilidades y el progreso.
@@ -44,23 +62,23 @@ git clone https://github.com/DaniDeDos/MERN-TodoList.git
 cd server/
 ```
 
-2. Navega al directorio del client:
+3. Navega al directorio del client:
 
 ```javascript
 cd client/
 ```
 
-3. Instala las dependencias:
+4. Instala las dependencias:
 
 ```javascript
 yarn install
 ```
 
-4. Crea un archivo `.env` en la raíz del proyecto con las variables de entorno necesarias (por ejemplo, `DB_MONGO` para la cadena de conexión a MongoDB y `SECRETO` para JWT) en el server.
+5. Crea un archivo `.env` en la raíz del proyecto con las variables de entorno necesarias (por ejemplo, `DB_MONGO` para la cadena de conexión a MongoDB y `SECRETO` para JWT) en el server.
 
 - el mismo paso en el client
 
-5. Inicia el servidor de desarrollo:
+6. Inicia el servidor de desarrollo:
 
 - client/
 
@@ -73,7 +91,7 @@ yarn install
   yarn start
   ```
 
-6. Abre tu navegador y visita la aplicación en acción.
+7. Abre tu navegador y visita la aplicación en acción.
 
 ## Uso
 
