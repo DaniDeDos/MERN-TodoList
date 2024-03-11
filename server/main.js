@@ -17,5 +17,5 @@ app.use("/api/proyectos", require("./routes/proyectos.js"));
 app.use("/api/tareas", require("./routes/tareas.js"));
 
 app.listen(PORT, () => {
-  console.log(`Servidor funcionando en http://localhost:${PORT}/graphql`);
+  console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });

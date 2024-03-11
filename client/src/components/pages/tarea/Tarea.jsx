@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
-import tareaContext from "../../context/tareas/tareaContext.js";
-import proyectoContext from "../../context/proyectos/proyectoContext.js";
-import AlertaContext from "../../context/alerts/alertaContext.js";
+import tareaContext from "../../../context/tareas/tareaContext.js";
+import ProyectoContext from "../../../context/proyectos/proyectoContext.js";
+import AlertaContext from "../../../context/alerts/alertaContext.js";
 import { Link, useParams } from "react-router-dom";
 import { MdEdit, MdDelete } from "react-icons/md";
-import Titulo from "../layout/Titulo.jsx";
+import Titulo from "../../layout/Titulo.jsx";
 import TareaNueva from "./TareaNueva.jsx";
 
 const Tarea = () => {
   const { id } = useParams();
   const proyectoId = id;
 
-  const proyectosContext = useContext(proyectoContext);
+  const proyectosContext = useContext(ProyectoContext);
   const { getProyecto, proyecto } = proyectosContext;
 
   const [estadoButtonTheme, setEstadoButtonTheme] = useState("");

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import proyectoContext from "../../../context/proyectos/proyectoContext.js";
+import ProyectoContext from "../../../context/proyectos/proyectoContext.js";
 import { MdFolderDelete } from "react-icons/md";
 import AlertaContext from "../../../context/alerts/alertaContext.js";
 import { Link } from "react-router-dom";
@@ -8,9 +8,14 @@ import AuthContext from "../../../context/auth/authContext.js";
 import CrearProyecto from "./CrearProyecto.jsx";
 
 const Proyecto = () => {
-  const proyectosContext = useContext(proyectoContext);
-  const { mensaje, proyectos, obtenerProyectos, eliminarProyecto } =
-    proyectosContext;
+  const proyectosContext = useContext(ProyectoContext);
+  const {
+    mensaje,
+    proyectos,
+    obtenerProyectos,
+    eliminarProyecto,
+    agregarProyectos,
+  } = proyectosContext;
 
   const authContext = useContext(AuthContext);
   const { usuarioAutenticado } = authContext;
@@ -36,10 +41,10 @@ const Proyecto = () => {
     return (
       <>
         <Titulo titulo="Lista de proyectos vacía" descripcion="" />
+        <CrearProyecto agregarProyecto={agregarProyectos} />
       </>
     );
 
-  const { agregarProyectos } = useContext(proyectoContext);
   return (
     <div className="max-w-screen-xl mx-auto">
       {alerta ? <div>{alerta.msg}</div> : null}

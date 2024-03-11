@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import tareaContext from "../../context/tareas/tareaContext";
+import tareaContext from "../../../context/tareas/tareaContext";
 
 import { MdOutlineAdd } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";

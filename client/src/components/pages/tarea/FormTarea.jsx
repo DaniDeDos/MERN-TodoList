@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import tareaContext from "../../context/tareas/tareaContext";
-import Titulo from "../layout/Titulo";
+import tareaContext from "../../../context/tareas/tareaContext";
+import Titulo from "../../layout/Titulo"
 import { useParams, useNavigate } from "react-router-dom";
 
 const FormTarea = ({ active }) => {

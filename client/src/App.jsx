@@ -8,16 +8,16 @@ import AlertaState from "./context/alerts/AlertaState.jsx";
 import AuthState from "./context/auth/AuthState.jsx";
 import tokenAuth from "./config/token.js";
 
-import Login from "./Components/pages/auth/login/Login.jsx";
-import Register from "./Components/pages/auth/register/Register.jsx";
-import Home from "./Components/pages/Home.jsx";
-import NotFound from "./Components/pages/NotFound.jsx";
-import Proyecto from "./Components/pages/proyecto/Proyecto.jsx";
-import Tarea from "./Components/tarea/Tarea.jsx";
-import FormTarea from "./Components/tarea/FormTarea.jsx";
-import Layout from "./Components/layout/Layout.jsx";
+import Login from "./components/pages/auth/login/Login.jsx";
+import Register from "./components/pages/auth/register/Register.jsx";
+import Home from "./components/pages/Home.jsx";
+import NotFound from "./components/pages/NotFound.jsx";
+import Proyecto from "./components/pages/proyecto/Proyecto.jsx";
+import Tarea from "./components/pages/tarea/Tarea.jsx"
+import FormTarea from "./components/pages/tarea/FormTarea.jsx";
+import Layout from "./components/layout/Layout.jsx";
 
-import ProtectedRoute from "./Components/routes/ProtectedRoute.jsx";
+import ProtectedRoute from "./components/routes/ProtectedRoute.jsx";
 
 const token = localStorage.getItem("token");
 if (token) {
