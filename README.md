@@ -109,8 +109,5 @@ Si estás interesado en contribuir a este proyecto, por favor sigue estos pasos:
 
 ## Contacto
 
-Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue en este repositorio.
+Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue en este repo.
 
----
-
-¡Espero que disfrutes utilizando Gestión de Proyectos y Tareas!
