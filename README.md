@@ -5,14 +5,14 @@
 </div>
 
 <details closed>
-  <summary><b>Captura Proyecto</b></summary>
+  <summary><b>Captura proyecto</b></summary>
   
  <img src="./img/captura_proyecto.png" width = "100%">
 >
 </details>
 
 <details closed>
-  <summary><b>Captura Proyecto</b></summary>
+  <summary><b>Captura tareas de proyecto</b></summary>
   
  <img src="./img/captura_tarea.png" width = "100%">
 >
